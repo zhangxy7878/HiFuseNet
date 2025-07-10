@@ -1,6 +1,5 @@
 # HiFuseNet
 
----
 
 ## 📊 Data Availability
 
@@ -67,4 +66,5 @@ python predict.py \
   --output ./predicted_example.csv \
   --batch_size 32
 
+---
 More detailed instructions and supplementary details will be available upon formal acceptance of the manuscript.
