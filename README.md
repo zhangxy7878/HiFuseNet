@@ -13,12 +13,6 @@ The data used in this manuscript are publicly and freely available from the foll
   [https://www.corrdata.org.cn/inhibitor/](https://www.corrdata.org.cn/inhibitor/)
 
 ---
-
-## 📁 Code Availability
-
-More detailed instructions and supplementary details will be available upon formal acceptance of the manuscript.
-
----
 To run the code, We advice the following environment:
 
 | Component       | Version         |
@@ -72,3 +66,5 @@ python predict.py \
   --transformer ./example.npy \
   --output ./predicted_example.csv \
   --batch_size 32
+
+More detailed instructions and supplementary details will be available upon formal acceptance of the manuscript.
