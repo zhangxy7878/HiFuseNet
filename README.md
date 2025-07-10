@@ -16,10 +16,20 @@ The data used in this manuscript are publicly and freely available from the foll
 
 ## 📁 Code Availability
 
-The code for this project will be made publicly available on this repository upon formal acceptance of the manuscript.  
-More detailed instructions and supplementary materials will be released at that time.
+More detailed instructions and supplementary details will be available upon formal acceptance of the manuscript.
 
 ---
+To run the code, We advice the following environment:
+
+| Component       | Version         |
+|-----------------|------------------|
+| `Python`        | 3.9              |
+| `rdkit`         | 2024.3.6         |
+| `torch`         | 1.13.1+cu117     |
+| `scikit-learn`  | 1.5.2            |
+| `numpy`         | 1.23.0           |
+| `pandas`        | 1.2.0            |
+
 
 ## 🔍 Prediction Usage
 
