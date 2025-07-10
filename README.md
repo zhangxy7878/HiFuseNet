@@ -1,5 +1,5 @@
 # HiFuseNet
-
+---
 
 ## 📊 Data Availability
 
@@ -56,8 +56,6 @@ The output CSV file will contain:
 
 
 
-### 🧪 Example
-
 ```bash
 python predict.py \
   --property corrosion \
@@ -65,6 +63,7 @@ python predict.py \
   --transformer ./example.npy \
   --output ./predicted_example.csv \
   --batch_size 32
+```
 
----
+
 More detailed instructions and supplementary details will be available upon formal acceptance of the manuscript.
