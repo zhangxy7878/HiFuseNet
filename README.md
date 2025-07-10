@@ -59,7 +59,7 @@ The output CSV file will contain:
 
 - Original SMILES and (if provided) ground truth column(s)
 - 10 new columns: `fold_0`, `fold_1`, ..., `fold_9` — predictions from each fold model
-- (Optional) RMSE printed to console if ground truth exists
+- (Optional) RMSE printed to the last row if ground truth exists
 
 
 

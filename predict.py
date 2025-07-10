@@ -104,29 +104,20 @@ def main():
     # 如果有标签，计算 RMSE
     if labels is not None:
         rmses = []
-        per_sample_rmse = np.full((len(df), NUM_FOLDS), np.nan)
+        summary_row = {col: "" for col in df.columns}
 
         for i in range(NUM_FOLDS):
             pred = df[f'fold_{i}'].values
             mask = ~np.isnan(pred)
-            rmse = np.sqrt((pred[mask] - labels[mask]) ** 2)
-            per_sample_rmse[mask, i] = rmse
-            rmses.append(np.mean(rmse))
+            rmse = np.sqrt(np.mean((pred[mask] - labels[mask]) ** 2))
+            rmses.append(rmse)
+            summary_row[f"fold_{i}"] = f"{rmse:.3f}"
 
-        # 输出每行的 RMSE 平均值
-        df["RMSE_Mean"] = np.nanmean(per_sample_rmse, axis=1)
-        df["RMSE_Std"] = np.nanstd(per_sample_rmse, axis=1)
-
-        # 在最后一行追加 RMSE 的平均 ± 标准差
-        summary_row = {col: "" for col in df.columns}
-        for i in range(NUM_FOLDS):
-            summary_row[f"fold_{i}"] = f"{np.mean(per_sample_rmse[:, i]):.4f}±{np.std(per_sample_rmse[:, i]):.4f}"
-        summary_row["RMSE_Mean"] = f"{np.mean(rmses):.4f}"
-        summary_row["RMSE_Std"] = f"{np.std(rmses):.4f}"
+        # 将 RMSE 结果作为最后一行添加到 df
         df.loc[len(df)] = summary_row
         df.to_csv(output_csv, index=False)
-        print(f"\n✅ Prediction results saved to: {output_csv}")
 
+        print(f"\n✅ Prediction results saved to: {output_csv}")
         print("Per-fold RMSE:", np.round(rmses, 4))
         print("Mean ± Std RMSE: {:.4f} ± {:.4f}".format(np.mean(rmses), np.std(rmses)))
 
