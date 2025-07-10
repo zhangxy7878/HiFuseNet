@@ -113,7 +113,13 @@ def main():
             rmses.append(rmse)
             summary_row[f"fold_{i}"] = f"{rmse:.3f}"
 
-        # 将 RMSE 结果作为最后一行添加到 df
+        # 添加一列：写入 Mean ± Std
+        if "RMSE" not in df.columns:
+            df["RMSE"] = ""
+        summary_row["RMSE"] = f"{np.mean(rmses):.3f} +/- {np.std(rmses):.3f}"
+
+
+        # 添加这一行
         df.loc[len(df)] = summary_row
         df.to_csv(output_csv, index=False)
 
